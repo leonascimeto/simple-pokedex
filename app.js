@@ -3,15 +3,21 @@ const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
 const pokemonsPromises = () => {
   return Array.from({length:150})
     .map(async (el,index) => {
-      const response = await fetch(getPokemonUrl(index+1));
-      return await response.json();
+      try {
+        const response = await fetch(getPokemonUrl(index+1));
+        return await response.json();
+      } catch (error) {
+        alert("Erro de conexão com os dados");
+        console.error(error);
+      }
+      
     })
 }
 
 const populatePokemonList = async() => {
-
-  const allPokemons = await Promise.all(pokemonsPromises());
-  const htmlPokemons = await allPokemons.reduce((acc, {types, id, name, sprites}) => {
+  try {
+    const allPokemons = await Promise.all(pokemonsPromises());
+    const htmlPokemons = await allPokemons.reduce((acc, {types, id, name, sprites}) => {
     const typesValues = types.map(typeInfo => typeInfo.type.name);
 
     acc += `
@@ -23,11 +29,17 @@ const populatePokemonList = async() => {
     `;
 
     return acc;
-  }, '')
+    }, '')
     
-  const ul = document.querySelector("ul");
+    const ul = document.querySelector("ul");
 
-  ul.innerHTML = htmlPokemons;
+    ul.innerHTML = htmlPokemons;
+    
+  } catch (error) {
+    alert("Erro ao inserir dados na página")
+    console.error(error);
+  }
+  
 }
 
 populatePokemonList();
