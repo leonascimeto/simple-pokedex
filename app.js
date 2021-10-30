@@ -1,22 +1,24 @@
 const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
-const fetchPokemons = async() => {
-  const pokemonsPromisse = [];
 
-  for(let i =1; i <= 102; i++){
-    const response = await fetch(getPokemonUrl(i));
-    const json = await response.json();
-    pokemonsPromisse.push(json);
-  }
+const pokemonsPromises = () => {
+  return Array.from({length:150})
+    .map(async (el,index) => {
+      const response = await fetch(getPokemonUrl(index+1));
+      return await response.json();
+    })
+}
 
-  const allPokemons = await Promise.all(pokemonsPromisse);
-  const htmlPokemons = await allPokemons.reduce((acc, pokemon) => {
-    const types = pokemon.types.map(typeInfo => typeInfo.type.name);
+const populatePokemonList = async() => {
+
+  const allPokemons = await Promise.all(pokemonsPromises());
+  const htmlPokemons = await allPokemons.reduce((acc, {types, id, name, sprites}) => {
+    const typesValues = types.map(typeInfo => typeInfo.type.name);
 
     acc += `
-      <li class="card  ${types[0]}">
-        <img class="card-image" src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
-        <h2 class="card-title">${pokemon.id} . ${pokemon.name}</h2>
-        <p class="card-subtitle">${types.join(" | ")}</p>
+      <li class="card  ${typesValues[0]}">
+        <img class="card-image" src="${sprites.other.dream_world.front_default}" alt="${name}">
+        <h2 class="card-title">${id} . ${name}</h2>
+        <p class="card-subtitle">${typesValues.join(" | ")}</p>
       </li>
     `;
 
@@ -28,4 +30,4 @@ const fetchPokemons = async() => {
   ul.innerHTML = htmlPokemons;
 }
 
-fetchPokemons();
+populatePokemonList();

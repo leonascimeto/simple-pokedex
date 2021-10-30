@@ -34,15 +34,15 @@ h1 {
 
 .card::after {
 	content: "";
-  display: block;
-  width: 50%;
-  height: 45%;
-  border-radius: 100%;
-  background-color: #fff;
-  opacity: .7;
-  position: absolute;
-  top: 15%;
-  left: 25%;
+	display: block;
+	width: 50%;
+	height: 45%;
+	border-radius: 100%;
+	background-color: #fff;
+	opacity: .7;
+	position: absolute;
+	top: 15%;
+	left: 25%;
 }
 
 .steel {
@@ -61,7 +61,8 @@ h1 {
 	background-color: #FCF7DE;
 }
 
-.water, .ice {
+.water,
+.ice {
 	background-color: #DEF3FD;
 }
 
@@ -136,14 +137,15 @@ h1 {
 	z-index: 2;
 }
 
-.options{
+.options {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	margin: 2rem 0;
 }
 
-.options button{
-	margin: 0px 1rem 0 1rem;
+.options button {
+	margin: 0 1.5rem;
 	cursor: pointer;
 	padding: .5rem 1rem;
 	font-size: 1rem;
@@ -154,30 +156,32 @@ h1 {
 	transition: .3s;
 }
 
-.options button:first-child{
+.options button:first-child {
 	background-color: green;
 }
 
-.options button:last-child{
+.options button:last-child {
 	background-color: red;
 }
 
-.options button:hover{
-	box-shadow: 3px 3px 1px #000055;
+.options button:hover {
+	transform: scale(1.2);
 }
 
 @keyframes bounce {
 	20% {
-			transform: translateY(-6px);
+		transform: translateY(-6px);
 	}
+
 	40% {
-			transform: translateY(0px);
+		transform: translateY(0px);
 	}
 
 	80% {
-			transform: translateY(-2px);
+		transform: translateY(-2px);
 	}
+
 	100% {
-			transform: translateY(0);
+		transform: translateY(0);
 	}
 }
