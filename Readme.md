@@ -6,7 +6,7 @@
 - Fetch
 - Map e Reduce
 
-<img src="https://img.icons8.com/ios-filled/50/000000/under-construction.png" width="32px" height="32px"/>
+![alt](./assets/icon/building.png)
 
 ### Aplicação ainda em produção
 
