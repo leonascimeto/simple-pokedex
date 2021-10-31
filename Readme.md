@@ -4,7 +4,7 @@
 - Javascript puro
 - Async Await
 - Fetch
-- Map e Reduce
+- Map
 
 ![alt](./assets/icon/building.png)
 
