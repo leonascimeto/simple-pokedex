@@ -6,8 +6,10 @@
 - Fetch
 - Map
 
-![alt](./assets/icon/building.png)
+<hr>
 
-### Aplicação ainda em produção
+
+
+### ![alt](./assets/icon/building.png)   Aplicação ainda em produção
 
 ![alt](./assets/img/pokedexapi.gif)
