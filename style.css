@@ -106,8 +106,12 @@ h1 {
 	background-color: #ae92b9;
 }
 
-.normal {
+.dark {
 	background-color: #F5F5F5;
+}
+
+.normal {
+	background-color: #D6DDC9;
 }
 
 .card:hover {
@@ -156,11 +160,11 @@ h1 {
 	transition: .3s;
 }
 
-.options button:first-child {
+.options .next {
 	background-color: green;
 }
 
-.options button:last-child {
+.options .prev {
 	background-color: red;
 }
 
