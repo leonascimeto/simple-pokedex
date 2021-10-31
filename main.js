@@ -3,7 +3,7 @@ const infoAPI = {
   totalItems: 649
 }
 
-const limitItems = 10
+const limitItems = 20;
 const statePage = {
   current: 1,
   limitItems,
